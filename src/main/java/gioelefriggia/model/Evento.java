@@ -22,16 +22,21 @@ public class Evento {
 
     private int numeroMassimoPartecipanti;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
     public Evento() {
         // Costruttore vuoto necessario per JPA
     }
 
-    public Evento(String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
+    public Evento(String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.location = location;
     }
 
     // Getter e Setter
@@ -79,6 +84,14 @@ public class Evento {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     // Metodo toString
     @Override
     public String toString() {
@@ -89,8 +102,7 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                ", location=" + location +
                 '}';
     }
 }
-
-

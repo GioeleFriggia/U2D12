@@ -2,6 +2,7 @@ package gioelefriggia.model;
 
 
 public enum TipoEvento {
-    PUBBLICO, PRIVATO
+    PUBBLICO, PRIVATO,CONCERTO,
+    ALTRO_TIPO_DI_EVENTO;
 }
 
